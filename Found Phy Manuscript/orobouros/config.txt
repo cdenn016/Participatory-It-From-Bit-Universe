@@ -1,0 +1,95 @@
+# Simulation Configuration
+# ============================================================
+
+[Experiment]
+experiment_name                = _playground
+experiment_description         = Multi-agent with smooth support boundaries
+seed                           = 2
+
+[Manifold]
+spatial_shape                  = (20, 20)
+manifold_topology              = periodic
+
+[Training]
+n_steps                        = 200
+log_every                      = 1
+skip_initial_steps             = 0
+stop_if_n_scales_reached       = 25
+stop_if_n_condensations        = None
+stop_if_max_active_agents      = 200
+stop_if_min_active_agents      = None
+
+[Agents]
+n_agents                       = 8
+K_latent                       = 13
+D_x                            = 5
+mu_scale                       = 0.5
+sigma_scale                    = 1.0
+phi_scale                      = 0.1
+mean_smoothness                = 1.0
+
+[Emergence]
+enable_emergence               = False
+consensus_threshold            = 0.05
+consensus_check_interval       = 2
+min_cluster_size               = 2
+max_scale                      = 20
+max_meta_membership            = 10
+max_total_agents               = 1000
+enable_cross_scale_priors      = False
+enable_timescale_sep           = False
+
+[Energy]
+lambda_self                    = 1
+lambda_belief_align            = 1
+lambda_prior_align             = 1
+lambda_obs                     = 1
+lambda_phi                     = 1
+kappa_beta                     = 1.0
+kappa_gamma                    = 1.0
+
+[Learning Rates]
+lr_mu_q                        = 0.05
+lr_sigma_q                     = 0.0075
+lr_mu_p                        = 0.02
+lr_sigma_p                     = 0.0075
+lr_phi                         = 0.1
+
+[Support]
+support_pattern                = circles_2d
+agent_placement_2d             = center
+agent_radius                   = 5.0
+random_radius_range            = None
+interval_overlap_fraction      = 0.25
+
+[Masking]
+mask_type                      = gaussian
+gaussian_sigma                 = 0.46599060178465607
+gaussian_cutoff_sigma          = 3.0
+smooth_width                   = 0.1
+overlap_threshold              = 0.1
+outside_cov_scale              = 1000.0
+
+[Observations]
+obs_bias_scale                 = 0.5
+obs_noise_scale                = 1.0
+obs_w_scale                    = 0.5
+obs_r_scale                    = 1.0
+obs_ground_truth_amplitude     = 0.5
+obs_ground_truth_modes         = 3
+
+[Diagnostics]
+run_initial_diagnostics        = False
+run_final_diagnostics          = False
+save_diagnostic_plots          = True
+save_diagnostic_report         = False
+
+[Geometry]
+track_pullback_geometry        = False
+geometry_track_interval        = 10
+geometry_enable_consensus      = False
+geometry_enable_gauge_averaging = False
+geometry_gauge_samples         = 50
+geometry_lambda_obs            = 0.1
+geometry_lambda_dark           = 0.01
+
